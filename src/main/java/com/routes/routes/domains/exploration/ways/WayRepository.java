@@ -1,4 +1,7 @@
 package com.routes.routes.domains.exploration.ways;
 
-public class WayRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface WayRepository extends JpaRepository<Way,Integer> {
+
 }

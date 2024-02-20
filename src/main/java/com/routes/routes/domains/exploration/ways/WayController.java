@@ -2,9 +2,8 @@ package com.routes.routes.domains.exploration.ways;
 
 
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,8 +13,13 @@ import java.util.List;
 public class WayController  {
 
     private final WayService wayService;
-    @GetMapping("all")
+    @GetMapping
     public List<Way> getWays(){
         return wayService.getWays();
+    }
+
+    @PostMapping
+    public ResponseEntity<Way> save(@RequestBody Way way){
+        return ResponseEntity.ok(wayService.save(way));
     }
 }
